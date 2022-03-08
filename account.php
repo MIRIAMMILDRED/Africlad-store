@@ -107,7 +107,7 @@ $myinfo=mysqli_fetch_array($result);
                                         <ul>
 
                                             <li><a href="Account.php">My Profile </a></li>
-                                            <li><a href="cart.php">My Orders </a></li>
+                                            <li><a href="myorder.php">My Orders </a></li>
                                             <li><a href="wishlist.php">My Wishlist </a></li>
                                             <li><a href="addproduct.php"> Add Products for Sale</a></li>
                                             <li><a href="inventory.php">My inventory</a></li>
