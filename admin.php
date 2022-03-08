@@ -40,12 +40,7 @@ $myinfo=mysqli_fetch_array($result);
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-
+      
         <!-- preloader area start -->
         <div id="loading">
             <div id="loading-center">
@@ -68,37 +63,7 @@ $myinfo=mysqli_fetch_array($result);
         <?php require "header.php"?>
         <!-- header area end -->
 
-        <!-- offcanvas area start -->
-        <div class="offcanvas__area">
-            <div class="offcanvas__wrapper">
-            <div class="offcanvas__close">
-                <button class="offcanvas__close-btn" id="offcanvas__close-btn">
-                    <i class="fal fa-times"></i>
-                </button>
-            </div>
-            <div class="offcanvas__content">
-                <div class="offcanvas__logo mb-40">
-                    <a href="index.php">
-                    <img src="assets/img/logo/logo-black.png" alt="logo">
-                    </a>
-                </div>
-                <div class="offcanvas__search mb-25">
-                    <form action="#">
-                        <input type="text" placeholder="What are you searching for?">
-                        <button type="submit" ><i class="far fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="mobile-menu-2 fix"></div>
-                <div class="offcanvas__action">
-
-                </div>
-            </div>
-            </div>
-        </div>
-        <!-- offcanvas area end -->      
-        <div class="body-overlay"></div>
-        <!-- offcanvas area end -->
-
+       
         <main>
             
             <!-- breadcrumb area start -->
@@ -120,7 +85,7 @@ $myinfo=mysqli_fetch_array($result);
             </section>
             <!-- breadcrumb area end -->
 
-            <!-- blog area start -->
+           
             <section class="blog__area box-plr-75 pb-70">
                 <div class="container-fluid">
                     <div class="row">
