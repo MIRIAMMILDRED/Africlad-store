@@ -25,8 +25,8 @@ $code=$_POST['code'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
 $notes=$_POST['notes'];
-$sql=mysqli_query($conn,"INSERT INTO billing(First_names,Last_names,county,zip,Email,Phone_Number,comp_name,Adddress,Apartment,town,notes)  
-                        VALUES('$first_name','$last_name','$county','$code','$email','$phone','$comp_name','$Address','$apartment','$town','$notes')");
+$sql=mysqli_query($conn,"INSERT INTO billing(First_names,Last_names,county,zip,Email,Phone_Number,comp_name,Address,Apartment,town,notes,user_idx)  
+                        VALUES('$first_name','$last_name','$county','$code','$email','$phone','$comp_name','$Address','$apartment','$town','$notes','$user_id')");
 header("Location:index.php");
 
 ?>

@@ -3,11 +3,18 @@
 <?php
 require "./database/dataconn.php";
 require "./user_info.php";
+require "./cookies.php";
+
 $myinfo=mysqli_fetch_array($result); 
     $myname = $myinfo['Full_names'];
  if (!isset($_SESSION['email'])) {
      header ("Location:Login.php");
  }
+ $user_id = $_COOKIE['user_id'];
+ $sql=mysqli_query($conn,"SELECT * FROM billing WHERE user_idx='$user_id'");
+ $stmt=mysqli_fetch_array($sql);
+
+ $addrs=$stmt['Address'];
  ?>
 
 <!doctype html>
@@ -121,6 +128,8 @@ $myinfo=mysqli_fetch_array($result);
                                             <strong>Full names: </strong><?php echo $myinfo['Full_names']; ?><br>
                                             <strong>Your Email: </strong><?php echo $myinfo['Email']; ?><br>
                                             <strong>Phone number: </strong><?php echo $myinfo['Phone_Number']; ?><br>
+                                            <strong>Address: </strong><?php echo $stmt['Address'] ?><br>
+                                            
                                             </div>
                                         </article>
                                     </div>
