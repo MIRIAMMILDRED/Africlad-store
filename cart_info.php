@@ -9,6 +9,7 @@ $sql="SELECT * FROM cart WHERE user_idx='$user_id'";
 $result=mysqli_query($conn,$sql);
 while ($myprod=mysqli_fetch_array($result)) {
     $id_product = $myprod['product_id'];
+    
     $sqlstmt="SELECT * FROM products WHERE id='$id_product'";
     $result2=mysqli_query($conn,$sqlstmt);
     $product_info=mysqli_fetch_array($result2);

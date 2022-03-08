@@ -105,10 +105,12 @@ require "./cart_info.php";
                                              $result=mysqli_query($conn,$sql);
                                                 while ($myprod=mysqli_fetch_array($result)) {
                                                     $id_product = $myprod['product_id'];
+                                        
                                                     $sqlstmt="SELECT * FROM products WHERE id='$id_product'";
                                                     $result2=mysqli_query($conn,$sqlstmt);
                                                     $product_info=mysqli_fetch_array($result2);
                                                     $quantity = $myprod['quantity'];
+                                                    
                                                     $total_price=$product_info['Price']*$quantity ?>
                                             <tr>
                                                 <td class="product-thumbnail"><a href="product-details.php"> <img src="./product_pictures/<?php echo $product_info['image']; ?>" alt=""></td>
