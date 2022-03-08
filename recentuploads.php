@@ -141,8 +141,8 @@ require "./database/dataconn.php";
                                                 <td class="product-name"><a href="product-details.php?id=<?php echo $product_info['id']; ?>"><?php echo $product_info['product_name']; ?></a></td>
                                                 <td class="product-price"><span class="amount">KSH <?php echo $product_info['Price']; ?></span></td>
                                                 <td class="product-subtotal"><span class="amount"><?php echo $myprod['stock']; ?></span></td>
-                                                <td class="product-remove"><a href="prodremove.php?id=<?php echo $product_info['id']; ?>"><i class="fa fa-check"></i></a></td>
-                                                <td class="product-remove"><a href="prodremove.php?id=<?php echo $product_info['id']; ?>"><i class="fa fa-times"></i></a></td>
+                                                <td class="product-remove"><a href="adminaprove.php?id=<?php echo $product_info['id']; ?>"><i class="fa fa-check"></i></a></td>
+                                                <td class="product-remove"><a href="adminremove.php?id=<?php echo $product_info['id']; ?>"><i class="fa fa-times"></i></a></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

@@ -9,6 +9,12 @@ $result=mysqli_query($conn,$sql);
 $result2=mysqli_query($conn,"SELECT *  FROM cart WHERE user_idx='$user_id'");
 while ($order=mysqli_fetch_array($result2)) {
     $product_id=$order['product_id'];
+    $product_info = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM products WHERE id='$product_id'"));
+    $new_stock = $product_info['stock'] - $order['quantity'];
+    if ($new_stock <= 0) {
+        $update = mysqli_query($conn, "UPDATE products SET verification='sold out' WHERE id='$product_id'");
+    }
+    $update = mysqli_query($conn, "UPDATE products SET stock='$new_stock' WHERE id='$product_id'");
     $quantity=$order['quantity'];
     $sqlstmt=mysqli_query($conn,"INSERT INTO ordered_products(order_id,product_id,quantity) VALUES('$order_id','$product_id','$quantity')");
     $delete=mysqli_query($conn,"DELETE FROM cart WHERE product_id='$product_id'AND user_idx='$user_id'");

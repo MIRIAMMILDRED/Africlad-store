@@ -91,6 +91,7 @@
                                                 <th class="cart-product-name">Product</th>
                                                 <th class="product-price">Unit Price</th>
                                                 <th class="product-subtotal">Stock</th>
+                                                <th class="product-subtotal">Status</th>
                                                 <th class="product-remove">Remove</th>
                                             </tr>
                                         </thead>
@@ -110,6 +111,7 @@
                                                 <td class="product-name"><a href="product-details.php?id=<?php echo $product_info['id']; ?>"><?php echo $product_info['product_name']; ?></a></td>
                                                 <td class="product-price"><span class="amount">KSH <?php echo $product_info['Price']; ?></span></td>
                                                 <td class="product-subtotal"><span class="amount"><?php echo $myprod['stock']; ?></span></td>
+                                                <td class="product-subtotal"><span class="amount"><?php echo $myprod['verification']; ?></span></td>
                                                 <td class="product-remove"><a href="prodremove.php?id=<?php echo $product_info['id']; ?>"><i class="fa fa-times"></i></a></td>
                                             </tr>
                                             <?php } ?>

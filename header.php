@@ -1,6 +1,9 @@
 <?php require "cookies.php";
 require "./database/dataconn.php";
 require "./cart_info.php"; 
+if (isset($_GET['message'])) {
+    ?><script>alert('<?php echo $_GET['message']; ?>')</script><?php
+}
 ?>
 <header>
             <div class="header__area">

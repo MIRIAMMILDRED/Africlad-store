@@ -190,7 +190,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                     <div class="product__slider owl-carousel">
                                         <?php
                                         $hour_ago_24 = $time - (24*3600);
-                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE time_added>'$hour_ago_24'");
+                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE time_added>'$hour_ago_24' AND verification='verfied'");
                                         while ($product = mysqli_fetch_array($prod)) {
                                             ?><div class="product__item white-bg">
                                             <div class="product__thumb p-relative">
@@ -222,7 +222,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                 <span class="price">KSH <?php echo $product['Price']; ?></span>
                                             </div>
                                             <div class="product__add-btn">
-                                                <button type="button">Add to Cart</button>
+                                            <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                             </div>
                                         </div><?php
                                         }
@@ -232,7 +232,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                 <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
                                     <div class="product__slider owl-carousel">
                                     <?php
-                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE special_categ='featured'");
+                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE special_categ='featured' AND verification='verfied'");
                                         while ($product = mysqli_fetch_array($prod)) {
                                             ?><div class="product__item white-bg">
                                             <div class="product__thumb p-relative">
@@ -275,7 +275,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                 <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="hot-tab">
                                     <div class="product__slider owl-carousel">
                                     <?php
-                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE special_categ='hot'");
+                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE special_categ='hot' AND verification='verfied'");
                                         while ($product = mysqli_fetch_array($prod)) {
                                             ?><div class="product__item white-bg">
                                             <div class="product__thumb p-relative">
@@ -317,7 +317,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                 <div class="tab-pane fade" id="random" role="tabpanel" aria-labelledby="random-tab">
                                     <div class="product__slider owl-carousel">
                                     <?php
-                                        $prod = mysqli_query($conn, "SELECT * FROM products");
+                                        $prod = mysqli_query($conn, "SELECT * FROM products WHERE verification='verfied'");
                                         while ($product = mysqli_fetch_array($prod)) {
                                             ?><div class="product__item white-bg">
                                             <div class="product__thumb p-relative">
@@ -404,7 +404,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6">
                                                 <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND  id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -449,7 +449,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                             
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND  id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -482,7 +482,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -493,7 +493,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 1");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 1");
                                                 while ($product=mysqli_fetch_array($prod)) { ?>
                                             <div class="product__item-wrapper mb-20">
                                                 <div class="product__item white-bg">
@@ -535,7 +535,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND  id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                               <div class="product__item-wrapper mb-20">
@@ -567,7 +567,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -578,7 +578,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                              <div class="product__item-wrapper mb-20">
@@ -611,7 +611,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -627,7 +627,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6">
                                                 <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -660,7 +660,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -672,7 +672,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                             
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -705,7 +705,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -716,7 +716,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 1");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 1");
                                                 while ($product=mysqli_fetch_array($prod)) { ?>
                                             <div class="product__item-wrapper mb-20">
                                                 <div class="product__item white-bg">
@@ -748,7 +748,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                         <p><?php echo $product['Description']?></p>
                                                         <div class="add-cart">
-                                                            <button class="t-y-btn t-y-btn-2">add to cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button class="t-y-btn t-y-btn-2">add to cart</button></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -758,7 +758,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                               <div class="product__item-wrapper mb-20">
@@ -791,7 +791,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -802,7 +802,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                              <div class="product__item-wrapper mb-20">
@@ -835,7 +835,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -850,7 +850,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6">
                                                 <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -883,7 +883,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -895,7 +895,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                             
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -928,7 +928,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -939,7 +939,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 1");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 1");
                                                 while ($product=mysqli_fetch_array($prod)) { ?>
                                             <div class="product__item-wrapper mb-20">
                                                 <div class="product__item white-bg">
@@ -971,7 +971,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                         <p><?php echo $product['Description']?></p>
                                                         <div class="add-cart">
-                                                            <button class="t-y-btn t-y-btn-2">add to cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button class="t-y-btn t-y-btn-2">add to cart</button></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -981,7 +981,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                               <div class="product__item-wrapper mb-20">
@@ -1014,7 +1014,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1025,7 +1025,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                              <div class="product__item-wrapper mb-20">
@@ -1058,7 +1058,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1073,7 +1073,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6">
                                                 <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -1106,7 +1106,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1118,7 +1118,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                             
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -1151,7 +1151,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1162,7 +1162,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 1");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 1");
                                                 while ($product=mysqli_fetch_array($prod)) { ?>
                                             <div class="product__item-wrapper mb-20">
                                                 <div class="product__item white-bg">
@@ -1194,7 +1194,8 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                         <p><?php echo $product['Description']?></p>
                                                         <div class="add-cart">
-                                                            <button class="t-y-btn t-y-btn-2">add to cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button class="t-y-btn t-y-btn-2">add to cart</button></a>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1204,7 +1205,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                               <div class="product__item-wrapper mb-20">
@@ -1237,7 +1238,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1248,7 +1249,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                              <div class="product__item-wrapper mb-20">
@@ -1281,7 +1282,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1296,7 +1297,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6">
                                                 <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -1329,7 +1330,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1341,7 +1342,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                             
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                                     <div class="product__item-wrapper mb-20">
@@ -1374,7 +1375,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1385,7 +1386,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 1");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 1");
                                                 while ($product=mysqli_fetch_array($prod)) { ?>
                                             <div class="product__item-wrapper mb-20">
                                                 <div class="product__item white-bg">
@@ -1417,7 +1418,8 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                         <p><?php echo $product['Description']?></p>
                                                         <div class="add-cart">
-                                                            <button class="t-y-btn t-y-btn-2">add to cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button class="t-y-btn t-y-btn-2">add to cart</button></a>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1427,7 +1429,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                               <div class="product__item-wrapper mb-20">
@@ -1460,7 +1462,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1471,7 +1473,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                         <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                                         <?php
                                                 $result=mt_rand(1,$all-2);
-                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE id >'$result' LIMIT 2");
+                                                $prod=mysqli_query($conn, "SELECT * FROM  products WHERE verification='verfied' AND id >'$result' LIMIT 2");
                                                 while ($product=mysqli_fetch_array($prod)) {
                                                     ?>
                                              <div class="product__item-wrapper mb-20">
@@ -1504,7 +1506,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                                                         <span class="price-old"> <del>KSH <?php echo $product['Price']+(mt_rand(1,9)*50); ?></del> </span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                    <a href="addcart.php?id=<?php echo $product['id']; ?>&page=index.php"><button type="button">Add to Cart</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1538,7 +1540,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                         <div class="sale__slider owl-carousel">
                                 <?php
                                 $result=mt_rand(1,$all-2);
-                                $prod=mysqli_query($conn,"SELECT * FROM products ORDER BY id DESC");
+                                $prod=mysqli_query($conn,"SELECT * FROM products WHERE verification='verfied' ORDER BY id DESC");
                                 
                                 while ($product=mysqli_fetch_array($prod)) {
                                    
@@ -1574,7 +1576,7 @@ $all=mysqli_num_rows(mysqli_query($conn,"SELECT * FROM products"));
                             <div class="sale__slider owl-carousel">
                                 <?php
                                 $result=mt_rand(1,$all-2);
-                                $prod=mysqli_query($conn,"SELECT * FROM products ORDER BY id ASC");
+                                $prod=mysqli_query($conn,"SELECT * FROM products WHERE verification='verfied' ORDER BY id ASC");
                                 
                                 while ($product=mysqli_fetch_array($prod)) {
                                    
