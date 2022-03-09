@@ -92,13 +92,13 @@
                                         
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>First Name<span class="required">*</span></label>
+                                                <label>First Name<span class="required" required>*</span></label>
                                                 <input type="text" placeholder=""  name= "firstname"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Last Name <span class="required">*</span></label>
+                                                <label>Last Name <span class="required" required>*</span></label>
                                                 <input type="text" placeholder="" name="lastname"/>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
                                                 <label>Address <span class="required">*</span></label>
-                                                <input type="text" placeholder="Street address"name="address" />
+                                                <input type="text"  required placeholder="Street address"name="address" />
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -121,31 +121,31 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
-                                                <label>Town / City <span class="required">*</span></label>
+                                                <label>Town / City <span class="required" required>*</span></label>
                                                 <input type="text" placeholder="Town / City"name="city" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>State / County <span class="required">*</span></label>
+                                                <label>State / County <span class="required" required>*</span></label>
                                                 <input type="text" placeholder="" name="county"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Postcode / Zip <span class="required">*</span></label>
+                                                <label>Postcode / Zip <span class="required" required>*</span></label>
                                                 <input type="text" placeholder="Postcode / Zip" name="code"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Email Address <span class="required">*</span></label>
-                                                <input type="email" placeholder="" name="email"/>
+                                                <input type="email"  required placeholder="" name="email"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Phone <span class="required">*</span></label>
+                                                <label>Phone <span class="required"required>*</span></label>
                                                 <input type="text" placeholder="12365489"name="phone"/>
                                             </div>
                                         </div>

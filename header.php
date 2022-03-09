@@ -127,7 +127,7 @@ if (isset($_GET['message'])) {
                                                       </a>
                                                     </div>
                                                     <div class="cart__details">
-                                                      <h6><a href="product-details.php"><?php echo $product_info['product_name'];?>  </a></h6>
+                                                      <h6><a href="product-details.php"><?php echo $product_info['product_name']." *".$myprod['quantity'];?>  </a></h6>
                                                       <div class="cart__price">
                                                         <span>kSH <?php echo $product_info['Price'];?></span>
                                                       </div>

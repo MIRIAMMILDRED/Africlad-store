@@ -229,16 +229,18 @@ if ($rsult) {
                                           </div>
                                     </div>
                                     <div class="product__details-quantity mb-20">
-                                        <!-- <form action="cart.php"> -->
+                                        <form action="addcart.php" method="POST">
                                             <div class="pro-quan-area d-lg-flex align-items-center">
                                                 <div class="product-quantity mr-20 mb-25">
-                                                    <div class="cart-plus-minus p-relative"><input type="text" value="1" /></div>
+                                                    <div class="cart-plus-minus p-relative"><input type="text" name="quantity" value="1" /></div>
                                                 </div>
+                                                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                                                <input type="hidden" name="page" value="product-details.php?id=<?php echo $product['id']; ?>">
                                                 <div class="pro-cart-btn mb-25">
-                                                <a href="addcart.php?id=<?php echo $product['id']; ?>&page=product-details.php?id=<?php echo $product['id']; ?>"><button class="t-y-btn">Add to cart</button></a>
+                                                <button class="t-y-btn" name="submit" type="submit">Add to cart</button>
                                                 </div>
                                             </div>
-                                        <!-- </form> -->
+                                        </form>
                                     </div>
                                     <div class="product__details-action">
                                         <ul>

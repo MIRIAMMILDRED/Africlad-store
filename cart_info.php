@@ -12,5 +12,5 @@ while ($myprod=mysqli_fetch_array($result)) {
     $sqlstmt="SELECT * FROM products WHERE id='$id_product'";
     $result2=mysqli_query($conn,$sqlstmt);
     $product_info=mysqli_fetch_array($result2);
-    $total_price=$total_price + $product_info['Price'];
+    $total_price=$total_price + ($product_info['Price']*$myprod['quantity']);
 }
