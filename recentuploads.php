@@ -96,7 +96,7 @@ require "./database/dataconn.php";
                             <div class="breadcrumb__wrapper">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                      <li class="breadcrumb-item"><a href="admin.php">Home Admin</a></li>
                                       <li class="breadcrumb-item active" aria-current="page">Inventory</li>
                                     </ol>
                                   </nav>
