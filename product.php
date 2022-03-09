@@ -369,7 +369,7 @@ $product_s=mysqli_fetch_array($prod_s);
                                                 <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4">
                                                      <div class="product__item white-bg mb-30">
                                                          <div class="product__thumb p-relative">
-                                                             <a href="product-details.php" class="w-img">
+                                                             <a href="product-details.php?id=<?php echo $product['id'];?>" class="w-img">
                                                                  <img src="./product_pictures/<?php echo $product['image'];?>" alt="product">
                                                                  <img class="second-img" src="./product_pictures/<?php echo $product['image2'];?>" alt="product">
                                                              </a>
@@ -413,7 +413,7 @@ $product_s=mysqli_fetch_array($prod_s);
                                                 <div class="col">
                                                      <div class="product__item white-bg mb-30">
                                                          <div class="product__thumb p-relative">
-                                                             <a href="product-details.php" class="w-img">
+                                                             <a href="product-details.php?id=<?php echo $product['id'];?>" class="w-img">
                                                                  <img src="./product_pictures/<?php echo $product['image'];?>" alt="product">
                                                                  <img class="second-img" src="./product_pictures/<?php echo $product['image2'];?>" alt="product">
                                                              </a>
@@ -456,7 +456,7 @@ $product_s=mysqli_fetch_array($prod_s);
                                                ?>
                                                     <div class="product__item product__list white-bg mb-30 d-md-flex">
                                                         <div class="product__thumb p-relative mr-20">
-                                                            <a href="product-details.html" class="w-img">
+                                                            <a href="product-details.php?id=<?php echo $product['id'];?>" class="w-img">
                                                                 <img src="./product_pictures/<?php echo $product['image'];?>" alt="product">
                                                                 <img class="second-img" src="./product_pictures/<?php echo $product['image2'];?>" alt="product">
                                                             </a>
@@ -502,30 +502,6 @@ $product_s=mysqli_fetch_array($prod_s);
             </section>
             <!-- product area end -->
 
-            <!-- brand area start -->
-            <section class="brand__area">
-                <div class="container custom-container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12">
-                        <div class="brand__slider owl-carousel">
-                            <div class="brand__item">
-                            <img src="assets/img/brand/brand-1.jpg" alt="">
-                            </div>
-                            <div class="brand__item">
-                            <img src="assets/img/brand/brand-2.jpg" alt="">
-                            </div>
-                            <div class="brand__item">
-                            <img src="assets/img/brand/brand-3.jpg" alt="">
-                            </div>
-                            <div class="brand__item">
-                            <img src="assets/img/brand/brand-4.jpg" alt="">
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- brand area end -->
  
             <!-- shop modal start -->
             <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
